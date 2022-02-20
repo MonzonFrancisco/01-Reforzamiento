@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Usuario, ReqResListado } from '../interfaces/reqRes';
-import { resResApi } from '../api/reqRes';
+import { reqResApi } from '../api/reqRes';
 
 export const useUsuarios = () => {
     const [usuarios, setUsuarios] = useState<Usuario[]>([]);
@@ -13,7 +13,7 @@ export const useUsuarios = () => {
         }, []);
 
         const cargarUsuarios = async () =>{
-        const resp = await resResApi.get<ReqResListado>('/users',{
+        const resp = await reqResApi.get<ReqResListado>('/users',{
             params:{
             page: paginaRef.current
             }
